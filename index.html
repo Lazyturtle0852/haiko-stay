@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="30〜40人で貸し切れて、1人1泊10,000円以下（素泊まりなら7,000〜8,000円以下）で泊まれる全国の宿。廃校15件＋無人島・宿坊・青年の家6件を安い順に。">
+<meta name="description" content="40人・1人1泊1万円以下で泊まれる宿の種類を9つに整理し、全国26件の候補を実勢価格つきで安い順に。廃校・公営の青少年施設・スポーツ合宿の宿・アウトドア拠点など。">
 <meta property="og:title" content="大人数で泊まる名簿">
-<meta property="og:description" content="30〜40人で貸し切れて1人1万円以下。全国の廃校・公営施設21件を安い順に。">
+<meta property="og:description" content="40人・1人1万円以下。宿の種類9分類と全国26件を安い順に。">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
@@ -240,6 +240,30 @@ a.link:focus-visible{outline:2px solid var(--chalk);outline-offset:3px}
   transform:rotate(-1.5deg);
 }
 
+/* ---- category map ---- */
+.cats{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:6px}
+.cat{
+  background:var(--panel);border:1px solid var(--line);
+  padding:18px;display:flex;flex-direction:column;gap:10px;
+  box-shadow:var(--shadow);
+}
+.cat.out{background:transparent;border-style:dashed}
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.cat-head h4{margin:0;font-family:"Zen Maru Gothic",sans-serif;font-size:15.5px}
+.cat-yen{
+  font-family:"Roboto Mono",monospace;font-size:13px;font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ok);
+}
+.cat.edge .cat-yen{color:color-mix(in srgb,var(--chalk) 78%,var(--ink))}
+.cat.out .cat-yen{color:var(--mark)}
+.cat dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+.cat dt{
+  font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:.12em;
+  color:var(--ink-3);padding-top:5px;white-space:nowrap;
+}
+.cat dd{margin:0;color:var(--ink-2);line-height:1.7}
+.cat .ex{font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line-soft);padding-top:9px}
+
 /* ---- sections ---- */
 h2{
   font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
@@ -277,7 +301,7 @@ footer a{color:var(--ink-2)}
   <div class="board-in">
     <div class="eyebrow">30–40人で貸し切れる／1人1万円以下／全国</div>
     <h1>カタショーの次に<br><span class="u">みんなで泊まる場所</span>を探す</h1>
-    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で建物ごと借りて遊べる場所を全国から集めた名簿。廃校が15件、校舎じゃない宿が6件、番外が3件。1人1泊10,000円以下（素泊まりなら7,000〜8,000円以下）を条件に、安い順に並べています。</p>
+    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で建物ごと借りて遊べる場所を全国から集めた名簿。まず宿の「種類」を9つに整理して、そのあとに実在の候補26件を安い順に並べました。条件は1人1泊10,000円以下（素泊まりなら7,000〜8,000円以下）。</p>
   </div>
 </header>
 
@@ -305,6 +329,106 @@ footer a{color:var(--ink-2)}
       <span>素泊まりなら 7,000〜8,000円以下。40人集めるための一番の条件。</span>
     </div>
   </div>
+
+
+  <h2 style="margin-top:8px">選択肢の地図</h2>
+  <p class="sub">40人・1人1万円以下という条件で成立する宿の種類。安い順で、アクティビティが最初から用意されている順ではありません。</p>
+  <div class="cats">
+
+    <div class="cat">
+      <div class="cat-head"><h4>公営の青少年施設</h4><span class="cat-yen">¥1,400〜5,000</span></div>
+      <dl>
+        <dt>遊び</dt><dd>カヌー、野外炊事、キャンプファイヤー、クラフト、登山、体育館。<b>プログラムが最初から組まれている</b>のがこの種類の最大の強み。</dd>
+        <dt>相場</dt><dd>国立青少年交流の家は大人2,500円・大学生1,200円で、3食つけても大人5,040円・大学生3,740円。府県立や市町村営はさらに安い。</dd>
+        <dt>注意</dt><dd>研修施設なので日程と消灯に規律があり、酒類を禁じる施設も多い。「静かに遊ぶ」なら最強、「夜通し騒ぐ」なら不向き。</dd>
+      </dl>
+      <p class="ex">全国13か所の<a class="link" href="https://www.niye.go.jp/facilities/facilities.html" target="_blank" rel="noopener">国立青少年交流の家</a>／府県立の少年自然の家</p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><h4>キャンプ場のバンガロー貸切</h4><span class="cat-yen">¥2,000〜4,000</span></div>
+      <dl>
+        <dt>遊び</dt><dd>BBQ、焚き火、川遊び。近隣にジップラインやツリークライミングのアドベンチャーパークがある場所を選ぶと、遊びを外注できる。</dd>
+        <dt>相場</dt><dd>1棟数千円を人数で割るので単価は最安クラス。ただし棟が小さく、40人だと5〜10棟の確保が要る。</dd>
+        <dt>注意</dt><dd>雨に弱く、屋内で全員が集まれる場所がないことが多い。雨天時の代替を先に決めておく。</dd>
+      </dl>
+      <p class="ex">例：<a class="link" href="https://picnic.ikeda-kibou.com/price/" target="_blank" rel="noopener">ツリーピクニックアドベンチャーいけだ</a>（福井）のような遊び施設の近くを起点に探す</p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><h4>廃校リノベ宿</h4><span class="cat-yen">¥3,500〜6,600</span></div>
+      <dl>
+        <dt>遊び</dt><dd>体育館、グラウンド、音楽室、給食、黒板。<b>道具と場所はあるが、遊びは自分たちで作る</b>タイプ。カタショーがまさにこれ。</dd>
+        <dt>相場</dt><dd>素泊まり3,500〜6,600円。1日1組の貸切が多く、夜の自由度が高い。</dd>
+        <dt>注意</dt><dd>幹事の企画力に成果が依存する。逆に言えば、やりたいことが決まっている集団には一番はまる。</dd>
+      </dl>
+      <p class="ex">この下の「廃校の候補」15件</p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><h4>ユースホステル貸切</h4><span class="cat-yen">¥5,400〜5,800</span></div>
+      <dl>
+        <dt>遊び</dt><dd>施設によるが、ラウンジや談話室があり「集まる場所」は確実にある。観光地の中心に近い立地が多い。</dd>
+        <dt>相場</dt><dd>会員価格で2食つき5,400〜5,800円。素泊まりならさらに下がる。</dd>
+        <dt>注意</dt><dd>1棟が40人に届かないことがあるので、貸切可否と定員を最初に確認する。</dd>
+      </dl>
+      <p class="ex">日本ユースホステル協会の団体利用枠</p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><h4>貸別荘・コテージの複数棟貸し</h4><span class="cat-yen">¥4,400〜13,600</span></div>
+      <dl>
+        <dt>遊び</dt><dd>BBQ、温泉、麻雀・カラオケつきの棟もある。屋内で完結する遊びが得意。</dd>
+        <dt>相場</dt><dd>40名対応は全国で26件ほど、1人4,400〜13,613円と幅が大きい。安い側を引けば予算内。</dd>
+        <dt>注意</dt><dd>棟が分かれるので全員が同じ部屋に集まれない。「全体で一箇所に集まる時間」を作りにくい。</dd>
+      </dl>
+      <p class="ex"><a class="link" href="https://www.aco.co.jp/yado/capacity/40.html" target="_blank" rel="noopener">ACO 40名対応</a>／<a class="link" href="https://cotte.fun/cottage/theme/45" target="_blank" rel="noopener">Cotte 団体・合宿</a></p>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><h4>アウトドア拠点の民宿</h4><span class="cat-yen">¥6,000〜9,000</span></div>
+      <dl>
+        <dt>遊び</dt><dd>ラフティング、キャニオニング、カヌー。<b>宿がツアー会社を兼ねている</b>ので、申し込みも送迎も宿でまとまる。</dd>
+        <dt>相場</dt><dd>素泊まり6,000円、1泊2食9,000円、合宿プランなら1泊3食7,900円〜。ただしツアー込みパックは14,000〜15,500円で予算外。</dd>
+        <dt>注意</dt><dd><b>宿は素泊まりで取り、ツアーは人数で別交渉</b>するのが安く上げるコツ。天候で中止になった日の代替も聞いておく。</dd>
+      </dl>
+      <p class="ex">群馬・みなかみ、高知・四万十、徳島・吉野川の各拠点</p>
+    </div>
+
+    <div class="cat edge">
+      <div class="cat-head"><h4>スポーツ合宿の宿</h4><span class="cat-yen">¥7,700〜（3食付）</span></div>
+      <dl>
+        <dt>遊び</dt><dd>専用グラウンド、体育館、ダンスホール、陸上競技場を宿が持っている。運動会をやるならここが一番ラク。</dd>
+        <dt>相場</dt><dd>菅平サンホテルで1泊3食7,700円〜、330名収容。夏のスキー宿は空いていて交渉しやすい。</dd>
+        <dt>注意</dt><dd>3食つきの価格なので素泊まり基準では超えるが、食事の手配が消えるぶん幹事は圧倒的に楽になる。</dd>
+      </dl>
+      <p class="ex">長野・菅平／白馬／志賀高原／戸狩、新潟・妙高</p>
+    </div>
+
+    <div class="cat edge">
+      <div class="cat-head"><h4>休暇村・国民宿舎</h4><span class="cat-yen">¥8,000〜12,000</span></div>
+      <dl>
+        <dt>遊び</dt><dd>季節の自然体験プログラムを施設が用意し、外部プログラムの手配と送迎までやってくれる。丸投げできるのが価値。</dd>
+        <dt>相場</dt><dd>1泊2食で8,000〜12,000円。休暇村は全国33か所で合宿プランがあり、自治体によっては1泊1,000円の補助が出る。</dd>
+        <dt>注意</dt><dd>温泉旅館に近いので、大浴場も食事も快適な代わりに、夜に大騒ぎする自由度は低い。</dd>
+      </dl>
+      <p class="ex"><a class="link" href="https://www.qkamura.or.jp/gassyuku/" target="_blank" rel="noopener">休暇村の合宿ページ</a>（全国33か所）</p>
+    </div>
+
+    <div class="cat out">
+      <div class="cat-head"><h4>無人島・宿坊・グランピング</h4><span class="cat-yen">¥15,000〜40,000</span></div>
+      <dl>
+        <dt>遊び</dt><dd>体験そのものが目的になる。無人島はキャンプファイヤーもカヤックも島の中で完結する。</dd>
+        <dt>相場</dt><dd>無人島は1人2〜4万円、高野山の宿坊は1泊2食15,000〜25,000円。今回の予算の2〜4倍。</dd>
+        <dt>注意</dt><dd>泊まりは無理でも<b>日帰りなら届く</b>。田島の探検コースは5,900円。安い宿に泊まって、昼だけここに行く手はある。</dd>
+      </dl>
+      <p class="ex">この下の「校舎じゃない宿」の後半に、予算オーバーとして残してあります</p>
+    </div>
+
+  </div>
+
+  <h2>候補の一覧</h2>
+  <p class="sub">上のカテゴリに当てはまる実在の宿。安い順で、金額は40人前後で泊まった場合の1人あたりです。</p>
 
   <div class="controls" role="group" aria-label="絞り込み">
     <span class="ctl-label">FILTER</span>
@@ -341,8 +465,8 @@ footer a{color:var(--ink-2)}
   <p class="sub">カタショーの直系。安い順。金額は40人前後で泊まった場合の1人あたりで、公式サイト掲載値から計算しています。</p>
   <div class="roster" id="list"></div>
 
-  <h2>校舎じゃない、面白い宿</h2>
-  <p class="sub">建物そのものが目的地になるタイプ。安い順で、予算に入る2件のあとに「面白いが予算外」の4件を置いています。</p>
+  <h2>校舎じゃない宿</h2>
+  <p class="sub">公営施設・スポーツ合宿の宿・アウトドア拠点。安い順で、予算に入る6件のあとに「面白いが予算外」の4件を置いています。</p>
   <div class="roster" id="list2"></div>
 
   <h2>番外：人数は足りないが、一度は泊まりたい</h2>
@@ -459,10 +583,10 @@ const DATA = [
 
   {name:"仲間と泊まる学校 さんむ西小", pref:"千葉県山武市", school:"旧・山武西小学校", region:"東日本",
    cap:114, capNote:"2026年春開業", gym:1, ground:1, solo:1,
-   price:{main:"要確認", kind:"ちょうなん西小と同系列", status:"unknown"},
-   desc:"ちょうなん西小の姉妹施設で、定員はさらに大きい114名。体育館・グラウンド完備。同じ運営なので料金体系も近いと見込めるが、開業直後で公表が追いついていないので直接確認が要る。枠は取りやすいはず。",
-   tags:["体育館・グラウンド","新しい施設","団体専用"],
-   url:"https://co-mit.jp/facility/sammu-nishisho/", label:"施設情報"},
+   price:{main:"7,700円〜", kind:"20名以上・1名あたり", status:"ok"},
+   desc:"ちょうなん西小の姉妹施設で、定員はさらに大きい114名。体育館・グラウンド完備で、20名以上なら1人7,700円から。4歳以上は大人と同額、0〜3歳は無料。開業直後なので週末の枠は取りやすいはず。曜日と季節の変動は要確認。",
+   tags:["体育館・グラウンド","新しい施設","4歳以上は同額","0〜3歳無料"],
+   url:"https://sammu-nishisho.mynavi.jp/price/", label:"料金案内"},
 
   {name:"四万十楽舎", pref:"高知県四万十市", school:"旧・西土佐中半小学校", region:"西日本",
    cap:60, capNote:"教室・保健室に2段ベッド", gym:1, ground:1, solo:0,
@@ -478,9 +602,16 @@ const DATA = [
    tags:["体育館・グラウンド","フィットネス","食堂・ランドリー"],
    url:"https://iizuna.jp/iicone-west/floor/tochinokino-yado/", label:"iizuna.jp"},
 
+  {name:"OUTWORK木更津", pref:"千葉県木更津市", school:"旧・小学校校舎", region:"東日本",
+   cap:40, capNote:"5名以上", gym:0, ground:1, solo:0,
+   price:{main:"9,900円〜", kind:"素泊まり（3食付は15,000円）", status:"edge"},
+   desc:"アクアラインで都心から近い、ワーケーション寄りの廃校宿。Wi-Fi、ホワイトボード、大型モニター、BBQ施設が揃う。ただし1人9,900円からで、3食つけると15,000円。設備は快適だが、今回の予算では上限ぎりぎり。",
+   tags:["Wi-Fi・大型モニター","BBQ施設","5名以上","3食付15,000円"],
+   url:"https://co-mit.jp/facility/outwork_kisarazu/", label:"施設情報"},
+
   {name:"s_pl@tt FUJISPARK", pref:"静岡県富士市", school:"旧・大学キャンパス", region:"中日本",
    cap:100, capNote:"個室〜大部屋", gym:1, ground:1, solo:0,
-   price:{main:"要確認", kind:"公表なし", status:"unknown"},
+   price:{main:"要問合せ", kind:"料金は非公表", status:"unknown"},
    desc:"廃校になった大学をまるごとリノベーション。個室から大部屋まで選べ、大中小の会議室とスポーツ施設が豊富。カタショーと同じ静岡なので、次回を「静岡もう一回」にするならここ。",
    tags:["スポーツ施設","会議室 大中小","個室あり"],
    url:"https://co-mit.jp/facility/fujispark/", label:"施設情報"},
@@ -544,6 +675,34 @@ function row(d){
 }
 
 const DATA2 = [
+  {name:"国立中央青少年交流の家", kind:"国立の青少年施設", pref:"静岡県御殿場市", school:"富士山麓・全国13か所のひとつ", region:"中日本",
+   cap:200, capNote:"研修室30〜200人", gym:1, ground:1, solo:0,
+   price:{main:"3,740円〜", kind:"大学生・3食込み（大人5,040円）", status:"ok"},
+   desc:"富士山を正面に望む国立施設。体育館・グラウンド・野球場に加え、野外炊事場とキャンプファイヤー場が揃い、カヌーなどの体験プログラムが最初から用意されている。宿泊は大人2,500円・大学生1,200円、3食で2,540円。遊びと安さの両立ではここが頂点。",
+   tags:["体育館・グラウンド・野球場","野外炊事100円/人","キャンプファイヤー","3食2,540円","富士山正面"],
+   url:"https://fujinosato.niye.go.jp/charge/", label:"料金案内"},
+
+  {name:"国立能登青少年交流の家", kind:"国立の青少年施設", pref:"石川県羽咋市", school:"能登半島・日本海に面した高台", region:"中日本",
+   cap:280, capNote:"宿泊棟280人＋キャンプ場100人", gym:1, ground:1, solo:0,
+   price:{main:"1,200〜2,500円", kind:"施設使用料（食事別）", status:"ok"},
+   desc:"宿泊棟280人にキャンプ場100人という規模。料金体系は国立共通で、小中高600円・大学生1,200円・大人2,500円。海が近く、砂浜を走れる千里浜なぎさドライブウェイまで近い。",
+   tags:["宿泊棟280人","キャンプ場併設","海が近い","小中高600円"],
+   url:"https://www.hot-ishikawa.jp/spot/detail_5335.html", label:"施設情報"},
+
+  {name:"菅平サンホテル", kind:"スポーツ合宿の宿", pref:"長野県上田市菅平高原", school:"合宿のメッカ・標高1,300mの高原", region:"中日本",
+   cap:330, capNote:"最大330名", gym:1, ground:1, solo:0,
+   price:{main:"7,700円〜", kind:"1泊3食", status:"ok"},
+   desc:"グラウンド、体育館、ダンスホール、陸上競技場を宿が持っている。1泊3食7,700円で食事の手配が丸ごと消えるので、幹事の負担が最小になる。夏でも涼しく、ラグビーやサッカーの合宿地として設備が鍛えられている。",
+   tags:["専用グラウンド","体育館・ダンスホール","陸上競技場","3食込み","330名収容"],
+   url:"https://www.gasyukuryoko.com/hotel/%E8%8F%85%E5%B9%B3%E3%82%B5%E3%83%B3%E3%83%9B%E3%83%86%E3%83%AB/", label:"施設情報"},
+
+  {name:"リゾート民宿なかじま", kind:"アウトドア拠点の民宿", pref:"群馬県みなかみ町", school:"ラフティングの本場・利根川源流", region:"東日本",
+   cap:50, capNote:"合宿対応", gym:0, ground:0, solo:0,
+   price:{main:"6,000円", kind:"素泊まり（合宿1泊3食7,900円〜）", status:"ok"},
+   desc:"宿がラフティング・キャニオニング・カヌーのツアーを持っていて、申し込みも送迎も宿でまとまる。素泊まり6,000円／1泊2食9,000円。ツアー込みパックは14,000〜15,500円と予算を超えるので、宿は素泊まりで取ってツアーを人数交渉するのが正解。",
+   tags:["ラフティング","キャニオニング","カヌー","1泊2食9,000円","合宿1泊3食7,900円〜"],
+   url:"https://rm-nakajima.jp/pack-summer", label:"料金ページ"},
+
   {name:"大阪府立 少年自然の家", kind:"公営の自然の家", pref:"大阪府能勢町", school:"林間学校・宿泊学習の定番施設", region:"西日本",
    cap:200, capNote:"ファイヤー場7カ所", gym:1, ground:1, solo:0,
    price:{main:"1,360円", kind:"宿泊棟・大人（食事別）", status:"ok"},
