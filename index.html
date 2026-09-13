@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="カタショーの次に狙える、30〜40人で貸し切れる全国の廃校宿15件を定員・体育館・貸切条件で絞り込める名簿。">
-<meta property="og:title" content="廃校に泊まる名簿">
-<meta property="og:description" content="30〜40人で貸し切れる全国の廃校宿15件。定員・体育館・貸切条件で絞り込み。">
+<meta name="description" content="カタショーの次に狙える、30〜40人で貸し切れる全国の宿。廃校15件＋無人島・宿坊・青年の家など6件を定員・体育館・貸切条件で絞り込める名簿。">
+<meta property="og:title" content="大人数で泊まる名簿">
+<meta property="og:description" content="30〜40人で貸し切れる全国の宿21件。廃校・無人島・宿坊・青年の家。">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
-<title>廃校に泊まる名簿</title>
+<title>大人数で泊まる名簿</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap">
@@ -175,6 +175,12 @@ button.chip:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
 }
 .cap .unit{font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);display:block;margin-top:4px}
 .cap .approx{font-size:11px;color:var(--ink-3);display:block;margin-top:6px;line-height:1.5}
+.kind{
+  display:inline-block;
+  font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:.16em;
+  color:var(--mark);border-bottom:1.5px solid color-mix(in srgb,var(--mark) 45%,transparent);
+  margin-bottom:6px;padding-bottom:1px;
+}
 .main h3{
   margin:0 0 2px;
   font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
@@ -252,8 +258,8 @@ footer a{color:var(--ink-2)}
 <header class="board">
   <div class="board-in">
     <div class="eyebrow">30–40人で貸し切れる／全国</div>
-    <h1>カタショーの次に<br><span class="u">泊まる小学校</span>を探す</h1>
-    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で校舎ごと借りて遊べる廃校宿を全国から集めた名簿。定員・体育館・貸切条件で絞り込めます。</p>
+    <h1>カタショーの次に<br><span class="u">みんなで泊まる場所</span>を探す</h1>
+    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で建物ごと借りて遊べる場所を全国から集めた名簿。廃校が15件、校舎じゃない宿が6件、人数は足りないが一度は泊まりたい番外が3件。定員・体育館・貸切条件で絞り込めます。</p>
   </div>
 </header>
 
@@ -306,9 +312,30 @@ footer a{color:var(--ink-2)}
 
   </div>
 
-  <h2>次回の候補</h2>
-  <p class="sub">定員は公式サイト・予約サイト掲載値。料金は変動するので、最終確認は各施設へ。</p>
+  <h2>廃校の候補</h2>
+  <p class="sub">カタショーの直系。定員は公式サイト・予約サイト掲載値で、料金は変動するので最終確認は各施設へ。</p>
   <div class="roster" id="list"></div>
+
+  <h2>校舎じゃない、面白い宿</h2>
+  <p class="sub">建物そのものが目的地になるタイプ。40人が一度に入れるものだけを先に置いています。</p>
+  <div class="roster" id="list2"></div>
+
+  <h2>番外：人数は足りないが、一度は泊まりたい</h2>
+  <p class="sub">40人では成立しないので、少人数の別旅か、分宿の「特別枠」として</p>
+  <div class="notes">
+    <div class="note">
+      <h4>ブルートレインたらぎ</h4>
+      <p>熊本県多良木町。引退した寝台特急「はやぶさ」の14系15形車両がそのまま宿。個室と開放型があり、洗面・トイレだけ改修済み。1両に入る人数は限られるので、40人なら「鉄道好きだけこっちに泊まる」分宿枠になります。<a class="link" href="https://www.town.taragi.lg.jp/gyousei/soshiki/kikakukanko/sisetsu/632.html" target="_blank" rel="noopener">多良木町</a></p>
+    </div>
+    <div class="note">
+      <h4>三豊鶴 TOJI</h4>
+      <p>香川県三豊市。大正時代の酒蔵をまるごと宿にした一棟貸し。仕込みタンクを使った大浴場が名物で、飲んでそのまま寝られる。人数は小さめですが、体験の密度は今回の候補で随一。<a class="link" href="https://www.mitoyotsuru.com/toji/" target="_blank" rel="noopener">mitoyotsuru.com</a></p>
+    </div>
+    <div class="note">
+      <h4>星のや奈良監獄</h4>
+      <p>奈良市。明治の五大監獄のひとつ、旧奈良少年刑務所を使った日本初の監獄ホテルで2026年春開業。放射状の獄舎がそのまま客室棟になる。価格帯的に大人数向けではないけれど、話題性は別格です。<a class="link" href="https://mag.tecture.jp/culture/20230925-99069/" target="_blank" rel="noopener">計画概要</a></p>
+    </div>
+  </div>
 
   <h2>幹事メモ</h2>
   <p class="sub">40人規模で動くときに効いてくるところ</p>
@@ -331,6 +358,8 @@ footer a{color:var(--ink-2)}
         <li><a class="link" href="https://satomono.jp/school/" target="_blank" rel="noopener">里の物語・廃校活用DB</a> — 全国を都道府県で網羅</li>
         <li><a class="link" href="https://co-mit.jp/column/pickup_school/" target="_blank" rel="noopener">CO-MIT 泊まれる学校特集</a> — 研修・合宿目線</li>
         <li><a class="link" href="https://www.mext.go.jp/a_menu/shotou/zyosei/haikou/index.htm" target="_blank" rel="noopener">文科省「みんなの廃校」</a> — 一次情報</li>
+        <li><a class="link" href="https://mujinto.jp/rental/" target="_blank" rel="noopener">無人島プロジェクト</a> — 貸切できる無人島</li>
+        <li><a class="link" href="https://www.niye.go.jp/basyo_gaido/" target="_blank" rel="noopener">国立青少年教育振興機構</a> — 公営の自然の家・交流の家</li>
       </ul>
     </div>
   </div>
@@ -457,6 +486,7 @@ function row(d){
       <span class="approx">${d.capNote}</span>
     </div>
     <div class="main">
+      ${d.kind ? `<span class="kind">${d.kind}</span>` : ''}
       <h3>${d.name}</h3>
       <p class="where"><span class="pref">${d.pref}</span> ／ ${d.school}</p>
       <p class="desc">${d.desc}</p>
@@ -465,13 +495,53 @@ function row(d){
   return el;
 }
 
+const DATA2 = [
+  {name:"瀬戸内 貸切 無人島 KUJIRA-JIMA", kind:"無人島まるごと", pref:"岡山県玉野市", school:"くじら島（宇野港から船で30分）", region:"西日本",
+   cap:50, capNote:"上限超も相談可", gym:0, ground:1, solo:1,
+   desc:"島を1日1組で丸ごと借りる。テント・グランピング・コテージから選べて、釣り、カヤック、キャンプファイヤーまで島の中で完結する。約80名のウェディング、約100名の修学旅行の実績があるので、40人はむしろ余裕のある側。",
+   tags:["1日1組・島まるごと","キャンプファイヤー","カヤック・釣り","基本200,000円＋大人35,000円/人"],
+   url:"https://www.setouchi.travel/jp/trip-ideas/f35819/", label:"施設紹介"},
+
+  {name:"大村湾〜無人島〜滞在記「田島」", kind:"無人島まるごと", pref:"長崎県西海市", school:"大村湾に浮かぶ無人島", region:"西日本",
+   cap:100, capNote:"300人規模の実績あり", gym:0, ground:1, solo:1,
+   desc:"無人島インストラクターがつくので、手ぶらで無人島キャンプが成立する珍しい島。フィールドが平らで広く、大人数のイベント向き。まず日帰り（大人5,900円〜）で下見してから泊まりを組むのが安全。",
+   tags:["1日1組貸切","インストラクター付き","手ぶらでOK","日帰り5,900円〜"],
+   url:"https://tashima-nagasaki.com/", label:"tashima-nagasaki.com"},
+
+  {name:"高野山 宿坊 三宝院", kind:"寺に泊まる", pref:"和歌山県高野町", school:"高野山の宿坊寺院（52ヶ寺のひとつ）", region:"西日本",
+   cap:150, capNote:"個室40室＋大広間", gym:0, ground:0, solo:0,
+   desc:"個室40室に大広間・中広間、団体で約150名まで。精進料理と朝の勤行がそのまま行程になるので、遊ぶというより「全員で同じ時間に同じことをやる」旅向き。15名以上の団体は電話相談。",
+   tags:["個室40室","精進料理","朝勤行","団体15名〜要電話"],
+   url:"https://www.shukubo.net/contents/stay/", label:"高野山宿坊協会"},
+
+  {name:"習志野市立 富士吉田青年の家", kind:"公営の青年の家", pref:"山梨県富士吉田市", school:"習志野市の市外施設", region:"中日本",
+   cap:100, capNote:"本館60名＋体育館棟40名", gym:1, ground:1, solo:0,
+   desc:"本館棟6部屋60名、体育館棟4部屋40名の計100名。4名以上ならどんな団体でも使える公営施設で、価格は今回の候補で最安クラス。富士山麓なので夏でも涼しい。派手さはないが、40人の合宿としては最も外れがない。",
+   tags:["体育館","公営価格","4名以上の団体","富士山麓"],
+   url:"https://www.city.narashino.lg.jp/shisetu/shigai/fujiyoshida/", label:"習志野市"},
+
+  {name:"泊まれる公園 INN THE PARK 沼津", kind:"元・少年自然の家", pref:"静岡県沼津市", school:"旧・沼津市立少年自然の家", region:"中日本",
+   cap:60, capNote:"宿泊棟＋テント併用", gym:0, ground:1, solo:0,
+   desc:"30年以上使われた少年自然の家を、代々木公園に匹敵する約60haの森ごと宿にした施設。宙に浮く球体テントが名物だが2名単位なので、40人なら1組貸切の宿泊棟をベースにテントを足す構成になる。「廃校」の親戚みたいな出自。",
+   tags:["宙に浮く球体テント","森 約60ha","宿泊棟は1組貸切","コース仕立ての夕食"],
+   url:"https://www.innthepark.jp/", label:"innthepark.jp"},
+
+  {name:"大阪府立 少年自然の家", kind:"公営の自然の家", pref:"大阪府能勢町", school:"林間学校・宿泊学習の定番施設", region:"西日本",
+   cap:200, capNote:"ファイヤー場7カ所", gym:1, ground:1, solo:0,
+   desc:"数名から400名までの規模に対応するキャンプファイヤー場が7カ所ある。人数に合わせて火を囲む場所を選べるのはここくらい。宿泊学習の設備がそのまま使えるので、40人で「本気の運動会と本気のキャンプファイヤー」をやるなら候補。",
+   tags:["ファイヤー場7カ所","体育館","公営価格","大阪市内から近い"],
+   url:"https://shizen.osaka-yha.or.jp/shisetsu", label:"施設案内"}
+];
+
 DATA.forEach(d => list.appendChild(row(d)));
+const list2 = document.getElementById('list2');
+DATA2.forEach(d => list2.appendChild(row(d)));
 
 const active = {region:new Set(), cap40:false, gym:false, solo:false};
 
 function apply(){
   let n = 0;
-  list.querySelectorAll('.row').forEach(el => {
+  document.querySelectorAll('.roster .row').forEach(el => {
     let ok = true;
     if (active.region.size && !active.region.has(el.dataset.region)) ok = false;
     if (active.cap40 && el.dataset.cap40 !== '1') ok = false;
@@ -480,7 +550,7 @@ function apply(){
     el.classList.toggle('hide', !ok);
     if (ok) n++;
   });
-  counter.textContent = `${n} / ${DATA.length} 件`;
+  counter.textContent = `${n} / ${DATA.length + DATA2.length} 件`;
 }
 
 document.querySelectorAll('button.chip').forEach(btn => {
