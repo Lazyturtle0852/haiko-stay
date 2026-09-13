@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="カタショーの次に狙える、30〜40人で貸し切れる全国の廃校宿15件を定員・体育館・貸切条件で絞り込める名簿。">
+<meta property="og:title" content="廃校に泊まる名簿">
+<meta property="og:description" content="30〜40人で貸し切れる全国の廃校宿15件。定員・体育館・貸切条件で絞り込み。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>廃校に泊まる名簿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#f3f5f2;
+  --panel:#ffffff;
+  --panel-2:#eceee9;
+  --ink:#1b2420;
+  --ink-2:#4c5a54;
+  --ink-3:#7e8a84;
+  --line:#d5dbd6;
+  --line-soft:#e4e8e4;
+  --board:#1f4a3a;
+  --board-ink:#f4f1e4;
+  --chalk:#d9a02b;
+  --mark:#b8462f;
+  --ok:#2f7a5b;
+  --shadow:0 1px 0 rgba(27,36,32,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121715;
+    --panel:#192019;
+    --panel-2:#212a26;
+    --ink:#e8ede9;
+    --ink-2:#a8b5ae;
+    --ink-3:#78857e;
+    --line:#2c3733;
+    --line-soft:#232d29;
+    --board:#12332a;
+    --board-ink:#e9e4d2;
+    --chalk:#e8b849;
+    --mark:#e08064;
+    --ok:#5bbd92;
+    --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121715;
+  --panel:#192019;
+  --panel-2:#212a26;
+  --ink:#e8ede9;
+  --ink-2:#a8b5ae;
+  --ink-3:#78857e;
+  --line:#2c3733;
+  --line-soft:#232d29;
+  --board:#12332a;
+  --board-ink:#e9e4d2;
+  --chalk:#e8b849;
+  --mark:#e08064;
+  --ok:#5bbd92;
+  --shadow:none;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 80px}
+
+/* ---- header ---- */
+.board{
+  background:var(--board);
+  color:var(--board-ink);
+  border-bottom:6px solid color-mix(in srgb, var(--board) 70%, #000);
+}
+.board-in{max-width:1040px;margin:0 auto;padding:38px 20px 30px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{
+  font-family:"Roboto Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--chalk);
+}
+h1{
+  margin:0;
+  font-family:"Zen Maru Gothic","Hiragino Sans",sans-serif;
+  font-weight:700;
+  font-size:clamp(28px,5.2vw,44px);
+  line-height:1.25;
+  text-wrap:balance;
+  letter-spacing:.01em;
+}
+h1 .u{
+  border-bottom:3px solid var(--chalk);
+  padding-bottom:2px;
+}
+.lede{margin:0;max-width:62ch;color:color-mix(in srgb, var(--board-ink) 82%, transparent);font-size:15px}
+
+/* ---- criteria strip ---- */
+.criteria{
+  display:grid;gap:1px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  background:var(--line);
+  border:1px solid var(--line);
+  margin:28px 0 34px;
+}
+.crit{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.crit b{font-family:"Zen Maru Gothic",sans-serif;font-size:14px;font-weight:700}
+.crit span{color:var(--ink-2);font-size:13px;line-height:1.7}
+.crit .n{
+  font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--ink-3);
+}
+
+/* ---- controls ---- */
+.controls{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  padding:14px 0 18px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:var(--ground);z-index:5;
+}
+.ctl-label{
+  font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--ink-3);margin-right:2px;
+}
+button.chip{
+  font:inherit;font-size:13px;
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  background:var(--panel);color:var(--ink-2);
+  border:1px solid var(--line);border-radius:2px;
+  padding:5px 12px;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
+}
+button.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+button.chip[aria-pressed="true"]{
+  background:var(--board);border-color:var(--board);color:var(--board-ink);
+}
+button.chip:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
+.count{
+  margin-left:auto;font-family:"Roboto Mono",monospace;font-size:12px;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;
+}
+
+/* ---- roster ---- */
+.roster{display:flex;flex-direction:column;gap:0;margin-top:6px}
+.row{
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:0 22px;
+  padding:22px 0;
+  border-bottom:1px solid var(--line-soft);
+  align-items:start;
+}
+.row.hide{display:none}
+.cap{
+  text-align:right;
+  border-right:1px solid var(--line);
+  padding-right:20px;
+  align-self:stretch;
+}
+.cap .num{
+  display:block;
+  font-family:"Roboto Mono",monospace;font-weight:700;
+  font-size:26px;line-height:1.1;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink);
+}
+.cap .unit{font-family:"Roboto Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);display:block;margin-top:4px}
+.cap .approx{font-size:11px;color:var(--ink-3);display:block;margin-top:6px;line-height:1.5}
+.main h3{
+  margin:0 0 2px;
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
+  font-size:18px;line-height:1.4;text-wrap:balance;
+}
+.where{
+  font-family:"Roboto Mono",monospace;font-size:11.5px;letter-spacing:.06em;
+  color:var(--ink-3);margin:0 0 10px;
+}
+.where .pref{color:var(--ink-2)}
+.desc{margin:0 0 12px;color:var(--ink-2);max-width:64ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tag{
+  font-size:11.5px;letter-spacing:.02em;
+  border:1px solid var(--line);color:var(--ink-2);
+  padding:2px 8px;border-radius:2px;background:var(--panel);
+}
+.tag.gym{border-color:color-mix(in srgb,var(--ok) 45%,var(--line));color:var(--ok)}
+.tag.solo{border-color:color-mix(in srgb,var(--chalk) 55%,var(--line));color:color-mix(in srgb,var(--chalk) 80%,var(--ink))}
+.tag.price{font-family:"Roboto Mono",monospace;font-variant-numeric:tabular-nums}
+a.link{
+  color:var(--ink);text-decoration:none;
+  border-bottom:1.5px solid var(--chalk);
+  font-size:12.5px;padding-bottom:1px;
+}
+a.link:hover{background:color-mix(in srgb,var(--chalk) 18%,transparent)}
+a.link:focus-visible{outline:2px solid var(--chalk);outline-offset:3px}
+.visited{
+  background:var(--panel-2);
+  border:1px solid var(--board);
+  padding:22px;
+  margin-top:6px;
+}
+.visited .stamp{
+  display:inline-block;
+  font-family:"Roboto Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  color:var(--mark);border:1.5px solid var(--mark);
+  padding:2px 8px;margin-bottom:10px;
+  transform:rotate(-1.5deg);
+}
+
+/* ---- sections ---- */
+h2{
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
+  font-size:20px;margin:52px 0 6px;text-wrap:balance;
+}
+h2 + .sub{margin:0 0 20px;color:var(--ink-3);font-size:13.5px}
+.notes{
+  display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.note{
+  background:var(--panel);border:1px solid var(--line);padding:18px;
+  box-shadow:var(--shadow);
+}
+.note h4{margin:0 0 6px;font-family:"Zen Maru Gothic",sans-serif;font-size:14.5px}
+.note p{margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.75}
+.note ul{margin:8px 0 0;padding-left:1.1em;color:var(--ink-2);font-size:13.5px}
+.note li{margin-bottom:4px}
+
+footer{
+  margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+  color:var(--ink-3);font-size:12.5px;line-height:1.9;
+}
+footer a{color:var(--ink-2)}
+@media (max-width:560px){
+  .row{grid-template-columns:64px 1fr;gap:0 14px}
+  .cap{padding-right:12px}
+  .cap .num{font-size:20px}
+  .controls{position:static}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="board">
+  <div class="board-in">
+    <div class="eyebrow">30–40人で貸し切れる／全国</div>
+    <h1>カタショーの次に<br><span class="u">泊まる小学校</span>を探す</h1>
+    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で校舎ごと借りて遊べる廃校宿を全国から集めた名簿。定員・体育館・貸切条件で絞り込めます。</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="criteria">
+    <div class="crit">
+      <span class="n">基準 A</span>
+      <b>40人が一度に泊まれる</b>
+      <span>分宿しない。ひとつ屋根の下で朝を迎えられる定員があること。</span>
+    </div>
+    <div class="crit">
+      <span class="n">基準 B</span>
+      <b>体育館かグラウンドが使える</b>
+      <span>カタショーの楽しさの芯。夜まで音が出せて、走り回れる場所。</span>
+    </div>
+    <div class="crit">
+      <span class="n">基準 C</span>
+      <b>1日1組の貸切</b>
+      <span>他の宿泊客に気をつかわない。これがあるかで当日の自由度が変わる。</span>
+    </div>
+  </div>
+
+  <div class="controls" role="group" aria-label="絞り込み">
+    <span class="ctl-label">FILTER</span>
+    <button class="chip" data-filter="region" data-value="東日本" aria-pressed="false">東日本</button>
+    <button class="chip" data-filter="region" data-value="中日本" aria-pressed="false">中部</button>
+    <button class="chip" data-filter="region" data-value="西日本" aria-pressed="false">西日本</button>
+    <button class="chip" data-filter="cap40" data-value="1" aria-pressed="false">40人以上OK</button>
+    <button class="chip" data-filter="gym" data-value="1" aria-pressed="false">体育館あり</button>
+    <button class="chip" data-filter="solo" data-value="1" aria-pressed="false">1日1組貸切</button>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="roster" id="roster">
+
+    <div class="visited">
+      <span class="stamp">2026 宿泊済</span>
+      <h3 style="margin:0 0 2px;font-family:'Zen Maru Gothic',sans-serif;font-size:18px">遊んで泊まれる小学校 カタショー</h3>
+      <p class="where"><span class="pref">静岡県牧之原市</span> ／ 旧・片浜小学校（2017年閉校）</p>
+      <p class="desc">今回の基準。校舎は南棟・北棟の2棟で、夜は棟ごとに1グループの貸切。体育館と天然芝グラウンド、海まで徒歩3分。給食メニューや音楽室の楽器、黒板の落書きまで込みで、施設全体では最大100名規模。</p>
+      <div class="tags">
+        <span class="tag gym">体育館・天然芝グラウンド</span>
+        <span class="tag">海 徒歩3分</span>
+        <span class="tag">給食／音楽室</span>
+        <span class="tag">平日5名〜・休日7名〜</span>
+        <a class="link" href="https://katasho.jp/" target="_blank" rel="noopener">katasho.jp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>次回の候補</h2>
+  <p class="sub">定員は公式サイト・予約サイト掲載値。料金は変動するので、最終確認は各施設へ。</p>
+  <div class="roster" id="list"></div>
+
+  <h2>幹事メモ</h2>
+  <p class="sub">40人規模で動くときに効いてくるところ</p>
+  <div class="notes">
+    <div class="note">
+      <h4>まず「1日1組」かを確認する</h4>
+      <p>さる小・ちょうなん西小・おくも村・FOREST DOOR は1日1団体の貸切運用。ここが押さえられれば、夜の時間の使い方（体育館・音楽室・グラウンド）が自由になります。</p>
+    </div>
+    <div class="note">
+      <h4>人数のしきい値で料金が跳ねる</h4>
+      <p>さる小は50名超で1人+1,000円（日帰り貸切）、30名以上の宿泊で1人+1,100円。ちょうなん西小は20名未満が1棟一律で、人数帯ごとに使える部屋数が変わります。35人と41人では総額の伸び方が違うので、人数確定を先にする方が安い。</p>
+    </div>
+    <div class="note">
+      <h4>食事は「厨房を借りる」か「頼む」か</h4>
+      <p>廃校宿は給食室が残っていて自炊できる施設が多い一方、40人分の自炊は当日の進行を圧迫します。さる小のように夕食2,200円〜／BBQ2,750円〜で頼めるなら、初日の夜だけ発注して2日目を自炊にするのが現実的。</p>
+    </div>
+    <div class="note">
+      <h4>探し方の元ネタ</h4>
+      <ul>
+        <li><a class="link" href="https://satomono.jp/school/" target="_blank" rel="noopener">里の物語・廃校活用DB</a> — 全国を都道府県で網羅</li>
+        <li><a class="link" href="https://co-mit.jp/column/pickup_school/" target="_blank" rel="noopener">CO-MIT 泊まれる学校特集</a> — 研修・合宿目線</li>
+        <li><a class="link" href="https://www.mext.go.jp/a_menu/shotou/zyosei/haikou/index.htm" target="_blank" rel="noopener">文科省「みんなの廃校」</a> — 一次情報</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    定員・料金・営業状況は2026年9月時点の公開情報にもとづく暫定値です。予約前に各公式サイトで最新を確認してください。<br>
+    出典：各施設公式サイト、<a href="https://co-mit.jp/column/pickup_school/" target="_blank" rel="noopener">CO-MIT</a>、<a href="https://satomono.jp/school/" target="_blank" rel="noopener">里の物語</a>、楽天トラベル／じゃらん掲載情報。
+  </footer>
+</div>
+
+<script>
+const DATA = [
+  {name:"泊まれる学校 さる小", pref:"群馬県みなかみ町", school:"旧・猿ヶ京小学校", region:"東日本",
+   cap:120, capNote:"最少10名〜", gym:0, ground:1, solo:1,
+   desc:"2012年開業、廃校活用の草分け。1日1団体の完全貸切で、音楽室・図工室・図書室まで自由に使える。グラウンドとプールつき。夜遅くまで音を出していい合宿向けの運用が徹底している。",
+   tags:["グラウンド・プール","音楽室／図工室／図書室","1泊5,500円〜","夕食2,200円〜／BBQ2,750円〜"],
+   url:"https://www.sarusho.com/", label:"sarusho.com"},
+
+  {name:"仲間と泊まる学校 ちょうなん西小", pref:"千葉県長南町", school:"旧・長南西小学校", region:"東日本",
+   cap:84, capNote:"1日1組", gym:1, ground:1, solo:1,
+   desc:"東京から車で約90分。体育館とグラウンド、多目的ホールが揃い、プロジェクター・スクリーン・ホワイトボードは無料貸出。運動会も懇親会もそのまま成立する構成。",
+   tags:["体育館・グラウンド","多目的ホール","貸切110,000円/日〜","都心から約90分"],
+   url:"https://chonan-nishisho.jp/", label:"chonan-nishisho.jp"},
+
+  {name:"仲間と泊まる学校 さんむ西小", pref:"千葉県山武市", school:"旧・山武西小学校", region:"東日本",
+   cap:114, capNote:"2026年春開業", gym:1, ground:1, solo:1,
+   desc:"ちょうなん西小の姉妹施設で、定員はさらに大きい114名。体育館・グラウンド完備で運動会規模のイベントに対応。開業直後なので週末の枠は比較的取りやすいはず。",
+   tags:["体育館・グラウンド","新しい施設","団体専用"],
+   url:"https://co-mit.jp/facility/sammu-nishisho/", label:"施設情報"},
+
+  {name:"星ふる学校 くまの木", pref:"栃木県塩谷町", school:"旧・熊ノ木小学校", region:"東日本",
+   cap:78, capNote:"教室8室に最大70名", gym:0, ground:1, solo:0,
+   desc:"1999年閉校の校舎を2002年から体験交流施設に。和洋室・洋室・大和室の3タイプ計78名で、40人なら部屋割りに余裕が出る。名前のとおり星空と、農村体験プログラムが主役。",
+   tags:["客室3タイプ／計78名","体験プログラム","星空"],
+   url:"https://www.shioya-kumanoki.com/", label:"shioya-kumanoki.com"},
+
+  {name:"昭和ふるさと村", pref:"栃木県茂木町", school:"旧・木幡小学校（国登録有形文化財）", region:"東日本",
+   cap:250, capNote:"最大約250名", gym:1, ground:1, solo:0,
+   desc:"文化財の木造校舎を使った複合施設。体育館、BBQガーデン、キャンプファイヤー、露天風呂、グランピングまで揃い、40人でも「やることが足りない」にならない。規模は今回の候補で最大。",
+   tags:["体育館","露天風呂","キャンプファイヤー","グランピング"],
+   url:"https://showafurusato.com/", label:"showafurusato.com"},
+
+  {name:"ホステルひまわり", pref:"北海道夕張市", school:"旧・夕張北高等学校", region:"東日本",
+   cap:200, capNote:"大食堂252席", gym:0, ground:1, solo:0,
+   desc:"高校校舎まるごとの宿。男女別大浴場、252名収容の大食堂、研修室、コインランドリー。大人数の合宿インフラとしては破格で、大人数利用なら貸切も相談可。",
+   tags:["大浴場","大食堂252席","研修室","貸切相談可"],
+   url:"https://satomono.jp/school/search/?pref=hokkaido", label:"施設情報"},
+
+  {name:"おじまふるさと交流館", pref:"福島県川俣町", school:"旧・小島小学校", region:"東日本",
+   cap:38, capNote:"各24畳の2室", gym:1, ground:1, solo:0,
+   desc:"校舎・体育館・グラウンドがそのまま残る自然体験宿泊施設。24畳の大部屋2室で最大38名なので、今回の人数だとほぼ貸切に近い使い方になる。公営価格で安いのが強み。",
+   tags:["体育館・グラウンド","24畳×2室","自然体験"],
+   url:"https://satomono.jp/school/", label:"施設情報"},
+
+  {name:"OKUTAMA+", pref:"東京都奥多摩町", school:"旧・古里中学校", region:"東日本",
+   cap:30, capNote:"1日1組限定", gym:0, ground:0, solo:1,
+   desc:"都心から約1時間の貸切中学校。教室・会議室・ラウンジが整っていて、遊ぶというよりは合宿＋作業の色が濃い。移動が短いぶん、金曜夜発の1泊が組みやすい。",
+   tags:["都心から約1時間","教室・ラウンジ","1日1組"],
+   url:"https://co-mit.jp/facility/okutamaplus/", label:"施設情報"},
+
+  {name:"いいづなコネクトWEST とちのきの宿", pref:"長野県飯綱町", school:"旧・三水第二小学校", region:"中日本",
+   cap:48, capNote:"最大48名", gym:1, ground:1, solo:0,
+   desc:"宿泊棟に食堂・コインランドリー、サッカーグラウンド、体育館、フィットネススタジオ、貸会議室が併設。40人が生活動線ごと完結するタイプで、冬はスキー合宿の拠点にもなる。",
+   tags:["体育館・グラウンド","フィットネス","食堂・ランドリー"],
+   url:"https://iizuna.jp/iicone-west/floor/tochinokino-yado/", label:"iizuna.jp"},
+
+  {name:"s_pl@tt FUJISPARK", pref:"静岡県富士市", school:"旧・大学キャンパス", region:"中日本",
+   cap:100, capNote:"個室〜大部屋", gym:1, ground:1, solo:0,
+   desc:"廃校になった大学をまるごとリノベーション。個室から大部屋まで選べ、大中小の会議室とスポーツ施設が豊富。カタショーと同じ静岡なので、次回を「静岡もう一回」にするならここ。",
+   tags:["スポーツ施設","会議室 大中小","個室あり"],
+   url:"https://co-mit.jp/facility/fujispark/", label:"施設情報"},
+
+  {name:"ゲストハウス繁盛校", pref:"兵庫県宍粟市", school:"旧・繁盛小学校", region:"西日本",
+   cap:70, capNote:"校舎まるごと貸切可", gym:1, ground:1, solo:1,
+   desc:"体育館とグラウンドが追加料金なしで24時間使い放題。4部屋すべて使えば30名以上。30名で1泊182,000円〜という団体前提の料金設計で、今回の人数にいちばん素直にはまる。",
+   tags:["体育館24時間","グラウンド24時間","30名で182,000円〜/泊","和室ドミトリー"],
+   url:"https://www.morehanse.net/", label:"morehanse.net"},
+
+  {name:"泊まれる学校 おくも村", pref:"兵庫県丹波篠山市", school:"旧・大芋小学校（2016年閉校）", region:"西日本",
+   cap:50, capNote:"一団体限定", gym:1, ground:1, solo:1,
+   desc:"宿泊は一団体限定の完全貸切。体育館、校庭、吹き抜けの多目的ホール。季節ごとにサイクリング・山菜採り・登山・蛍観賞などの企画があり、施設側と一緒に遊びを組み立てられる。",
+   tags:["完全貸切","体育館・校庭","多目的ホール","季節の体験企画"],
+   url:"https://okumomura.com/", label:"okumomura.com"},
+
+  {name:"FOREST DOOR 旧神楽小学校", pref:"兵庫県丹波市", school:"旧・神楽小学校", region:"西日本",
+   cap:40, capNote:"1日1組限定", gym:1, ground:1, solo:1,
+   desc:"木のぬくもりに寄せた改修で、サウナ・BBQデッキ・焚き火コーナーつき。体育館と芝生エリアもあり、「走り回る」より「だらっと長く過ごす」方向の貸切。夜が長いタイプの旅向き。",
+   tags:["サウナ","BBQデッキ・焚き火","体育館・芝生","1日1組"],
+   url:"https://co-mit.jp/facility/forestdoor/", label:"施設情報"},
+
+  {name:"四万十楽舎", pref:"高知県四万十市", school:"旧・西土佐中半小学校", region:"西日本",
+   cap:60, capNote:"教室・保健室に2段ベッド", gym:1, ground:1, solo:0,
+   desc:"保健室や教室に2段ベッドが入った、四万十川べりの廃校宿。カヌー、シュノーケリング、沢歩きが施設のプログラムとして用意されていて、遊びの中身を外注できるのが強い。",
+   tags:["カヌー・川遊び","2段ベッド","四万十川べり","駐車場30台"],
+   url:"https://www.shimanto-kankou.com/stay", label:"施設情報"},
+
+  {name:"SAGA FURUYU CAMP", pref:"佐賀県佐賀市富士町", school:"旧・富士小学校（2020年閉校）", region:"西日本",
+   cap:145, capNote:"大部屋4／ドミトリー6／ツイン8", gym:1, ground:1, solo:0,
+   desc:"古湯温泉の温泉街にある合宿施設。人工芝グラウンドと体育館が使え、宿泊は145名まで。大部屋・ドミトリー・ツインが混在しているので、雑魚寝が苦手な人にも部屋を割り当てられる。",
+   tags:["人工芝グラウンド","体育館","温泉街","ツインルーム8室"],
+   url:"https://sf-camp.com/", label:"sf-camp.com"}
+];
+
+const list = document.getElementById('list');
+const counter = document.getElementById('count');
+
+function row(d){
+  const el = document.createElement('article');
+  el.className = 'row';
+  el.dataset.region = d.region;
+  el.dataset.cap40 = d.cap >= 40 ? '1' : '0';
+  el.dataset.gym = d.gym ? '1' : '0';
+  el.dataset.solo = d.solo ? '1' : '0';
+
+  const tags = d.tags.map(t => {
+    const cls = /円/.test(t) ? 'tag price' : (/体育館|グラウンド|校庭|芝/.test(t) ? 'tag gym' : (/貸切|1日1組/.test(t) ? 'tag solo' : 'tag'));
+    return `<span class="${cls}">${t}</span>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="cap">
+      <span class="num">${d.cap}</span>
+      <span class="unit">MAX</span>
+      <span class="approx">${d.capNote}</span>
+    </div>
+    <div class="main">
+      <h3>${d.name}</h3>
+      <p class="where"><span class="pref">${d.pref}</span> ／ ${d.school}</p>
+      <p class="desc">${d.desc}</p>
+      <div class="tags">${tags}<a class="link" href="${d.url}" target="_blank" rel="noopener">${d.label}</a></div>
+    </div>`;
+  return el;
+}
+
+DATA.forEach(d => list.appendChild(row(d)));
+
+const active = {region:new Set(), cap40:false, gym:false, solo:false};
+
+function apply(){
+  let n = 0;
+  list.querySelectorAll('.row').forEach(el => {
+    let ok = true;
+    if (active.region.size && !active.region.has(el.dataset.region)) ok = false;
+    if (active.cap40 && el.dataset.cap40 !== '1') ok = false;
+    if (active.gym && el.dataset.gym !== '1') ok = false;
+    if (active.solo && el.dataset.solo !== '1') ok = false;
+    el.classList.toggle('hide', !ok);
+    if (ok) n++;
+  });
+  counter.textContent = `${n} / ${DATA.length} 件`;
+}
+
+document.querySelectorAll('button.chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!on));
+    const f = btn.dataset.filter;
+    if (f === 'region') {
+      on ? active.region.delete(btn.dataset.value) : active.region.add(btn.dataset.value);
+    } else {
+      active[f] = !on;
+    }
+    apply();
+  });
+});
+
+apply();
+</script>
+</body>
+</html>
