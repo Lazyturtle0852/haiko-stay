@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="カタショーの次に狙える、30〜40人で貸し切れる全国の宿。廃校15件＋無人島・宿坊・青年の家など6件を定員・体育館・貸切条件で絞り込める名簿。">
+<meta name="description" content="30〜40人で貸し切れて、1人1泊10,000円以下（素泊まりなら7,000〜8,000円以下）で泊まれる全国の宿。廃校15件＋無人島・宿坊・青年の家6件を安い順に。">
 <meta property="og:title" content="大人数で泊まる名簿">
-<meta property="og:description" content="30〜40人で貸し切れる全国の宿21件。廃校・無人島・宿坊・青年の家。">
+<meta property="og:description" content="30〜40人で貸し切れて1人1万円以下。全国の廃校・公営施設21件を安い順に。">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
@@ -191,6 +191,24 @@ button.chip:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
   color:var(--ink-3);margin:0 0 10px;
 }
 .where .pref{color:var(--ink-2)}
+.price{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;
+  margin:0 0 10px;
+}
+.price b{
+  font-family:"Roboto Mono",monospace;font-weight:700;font-size:19px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em;color:var(--ink);
+}
+.price .pk{font-size:12px;color:var(--ink-3)}
+.price .ps{
+  font-size:11px;letter-spacing:.04em;padding:1px 7px;border-radius:2px;
+  border:1px solid currentColor;
+}
+.ps.ok{color:var(--ok)}
+.ps.edge{color:color-mix(in srgb,var(--chalk) 78%,var(--ink))}
+.ps.over{color:var(--mark)}
+.ps.unknown{color:var(--ink-3)}
+.row.over .cap .num,.row.over h3{color:var(--ink-3)}
 .desc{margin:0 0 12px;color:var(--ink-2);max-width:64ch}
 .tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .tag{
@@ -257,9 +275,9 @@ footer a{color:var(--ink-2)}
 <body>
 <header class="board">
   <div class="board-in">
-    <div class="eyebrow">30–40人で貸し切れる／全国</div>
+    <div class="eyebrow">30–40人で貸し切れる／1人1万円以下／全国</div>
     <h1>カタショーの次に<br><span class="u">みんなで泊まる場所</span>を探す</h1>
-    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で建物ごと借りて遊べる場所を全国から集めた名簿。廃校が15件、校舎じゃない宿が6件、人数は足りないが一度は泊まりたい番外が3件。定員・体育館・貸切条件で絞り込めます。</p>
+    <p class="lede">静岡・旧片浜小の「カタショー」が楽しかったので、同じように大人数で建物ごと借りて遊べる場所を全国から集めた名簿。廃校が15件、校舎じゃない宿が6件、番外が3件。1人1泊10,000円以下（素泊まりなら7,000〜8,000円以下）を条件に、安い順に並べています。</p>
   </div>
 </header>
 
@@ -281,6 +299,11 @@ footer a{color:var(--ink-2)}
       <b>1日1組の貸切</b>
       <span>他の宿泊客に気をつかわない。これがあるかで当日の自由度が変わる。</span>
     </div>
+    <div class="crit">
+      <span class="n">基準 D</span>
+      <b>1人1泊 10,000円以下</b>
+      <span>素泊まりなら 7,000〜8,000円以下。40人集めるための一番の条件。</span>
+    </div>
   </div>
 
   <div class="controls" role="group" aria-label="絞り込み">
@@ -291,6 +314,7 @@ footer a{color:var(--ink-2)}
     <button class="chip" data-filter="cap40" data-value="1" aria-pressed="false">40人以上OK</button>
     <button class="chip" data-filter="gym" data-value="1" aria-pressed="false">体育館あり</button>
     <button class="chip" data-filter="solo" data-value="1" aria-pressed="false">1日1組貸切</button>
+    <button class="chip" data-filter="budget" data-value="1" aria-pressed="false" title="素泊まり8,000円以下で収まるもの">予算内だけ</button>
     <span class="count" id="count"></span>
   </div>
 
@@ -300,6 +324,7 @@ footer a{color:var(--ink-2)}
       <span class="stamp">2026 宿泊済</span>
       <h3 style="margin:0 0 2px;font-family:'Zen Maru Gothic',sans-serif;font-size:18px">遊んで泊まれる小学校 カタショー</h3>
       <p class="where"><span class="pref">静岡県牧之原市</span> ／ 旧・片浜小学校（2017年閉校）</p>
+      <p class="price"><b>基準</b><span class="pk">ここより高い宿は、その差額ぶんの理由が要る</span></p>
       <p class="desc">今回の基準。校舎は南棟・北棟の2棟で、夜は棟ごとに1グループの貸切。体育館と天然芝グラウンド、海まで徒歩3分。給食メニューや音楽室の楽器、黒板の落書きまで込みで、施設全体では最大100名規模。</p>
       <div class="tags">
         <span class="tag gym">体育館・天然芝グラウンド</span>
@@ -313,19 +338,19 @@ footer a{color:var(--ink-2)}
   </div>
 
   <h2>廃校の候補</h2>
-  <p class="sub">カタショーの直系。定員は公式サイト・予約サイト掲載値で、料金は変動するので最終確認は各施設へ。</p>
+  <p class="sub">カタショーの直系。安い順。金額は40人前後で泊まった場合の1人あたりで、公式サイト掲載値から計算しています。</p>
   <div class="roster" id="list"></div>
 
   <h2>校舎じゃない、面白い宿</h2>
-  <p class="sub">建物そのものが目的地になるタイプ。40人が一度に入れるものだけを先に置いています。</p>
+  <p class="sub">建物そのものが目的地になるタイプ。安い順で、予算に入る2件のあとに「面白いが予算外」の4件を置いています。</p>
   <div class="roster" id="list2"></div>
 
   <h2>番外：人数は足りないが、一度は泊まりたい</h2>
-  <p class="sub">40人では成立しないので、少人数の別旅か、分宿の「特別枠」として</p>
+  <p class="sub">人数か予算のどちらかが合わないので、少人数の別旅か、分宿の「特別枠」として</p>
   <div class="notes">
     <div class="note">
       <h4>ブルートレインたらぎ</h4>
-      <p>熊本県多良木町。引退した寝台特急「はやぶさ」の14系15形車両がそのまま宿。個室と開放型があり、洗面・トイレだけ改修済み。1両に入る人数は限られるので、40人なら「鉄道好きだけこっちに泊まる」分宿枠になります。<a class="link" href="https://www.town.taragi.lg.jp/gyousei/soshiki/kikakukanko/sisetsu/632.html" target="_blank" rel="noopener">多良木町</a></p>
+      <p>熊本県多良木町。引退した寝台特急「はやぶさ」の14系15形車両がそのまま宿。個室と開放型があり、洗面・トイレだけ改修済み。1両に入る人数は限られるので、40人なら「鉄道好きだけこっちに泊まる」分宿枠に。町営なので価格は安い側です。<a class="link" href="https://www.town.taragi.lg.jp/gyousei/soshiki/kikakukanko/sisetsu/632.html" target="_blank" rel="noopener">多良木町</a></p>
     </div>
     <div class="note">
       <h4>三豊鶴 TOJI</h4>
@@ -341,12 +366,16 @@ footer a{color:var(--ink-2)}
   <p class="sub">40人規模で動くときに効いてくるところ</p>
   <div class="notes">
     <div class="note">
+      <h4>予算で残るのは「公営」と「廃校」</h4>
+      <p>1人1万円を引くと、無人島（1人2〜4万円）と高野山の宿坊（1泊2食15,000〜25,000円）は全滅します。逆に公営の自然の家・青年の家は1,360〜3,930円、廃校勢も素泊まり3,500〜6,600円で、予算の半分以下。<b>面白さは廃校で取り、安さは公営で取る</b>のが今回の構図です。</p>
+    </div>
+    <div class="note">
       <h4>まず「1日1組」かを確認する</h4>
       <p>さる小・ちょうなん西小・おくも村・FOREST DOOR は1日1団体の貸切運用。ここが押さえられれば、夜の時間の使い方（体育館・音楽室・グラウンド）が自由になります。</p>
     </div>
     <div class="note">
-      <h4>人数のしきい値で料金が跳ねる</h4>
-      <p>さる小は50名超で1人+1,000円（日帰り貸切）、30名以上の宿泊で1人+1,100円。ちょうなん西小は20名未満が1棟一律で、人数帯ごとに使える部屋数が変わります。35人と41人では総額の伸び方が違うので、人数確定を先にする方が安い。</p>
+      <h4>人数と曜日で単価が倍近く動く</h4>
+      <p>くまの木は30〜49名で5,000円、50名以上なら4,300円と<b>増えるほど安い</b>。逆にちょうなん西小は平日6,600円が土曜8,800円、8月の土曜だと11,000円まで上がります。OKUTAMA+は基本料150,000円を頭割りするので、人数が減るほど不利。<b>人数と曜日を先に締める</b>のが最大の値切りです。</p>
     </div>
     <div class="note">
       <h4>食事は「厨房を借りる」か「頼む」か</h4>
@@ -372,103 +401,121 @@ footer a{color:var(--ink-2)}
 
 <script>
 const DATA = [
-  {name:"泊まれる学校 さる小", pref:"群馬県みなかみ町", school:"旧・猿ヶ京小学校", region:"東日本",
-   cap:120, capNote:"最少10名〜", gym:0, ground:1, solo:1,
-   desc:"2012年開業、廃校活用の草分け。1日1団体の完全貸切で、音楽室・図工室・図書室まで自由に使える。グラウンドとプールつき。夜遅くまで音を出していい合宿向けの運用が徹底している。",
-   tags:["グラウンド・プール","音楽室／図工室／図書室","1泊5,500円〜","夕食2,200円〜／BBQ2,750円〜"],
-   url:"https://www.sarusho.com/", label:"sarusho.com"},
+  {name:"おじまふるさと交流館", pref:"福島県川俣町", school:"旧・小島小学校", region:"東日本",
+   cap:38, capNote:"各24畳の2室", gym:1, ground:1, solo:0,
+   price:{main:"520〜2,620円", kind:"宿泊料（公営）", status:"ok"},
+   desc:"校舎・体育館・グラウンドがそのまま残る自然体験宿泊施設。24畳の大部屋2室で最大38名なので、今回の人数だとほぼ貸切に近い。町営なので宿泊料が桁違いに安く、浮いた分を食事と移動に回せる。",
+   tags:["体育館・グラウンド","24畳×2室","町営","ピザ焼き体験"],
+   url:"https://www.town.kawamata.lg.jp/site/chosei-shisetsu/ojimafurusatokouryuukann.html", label:"川俣町"},
 
-  {name:"仲間と泊まる学校 ちょうなん西小", pref:"千葉県長南町", school:"旧・長南西小学校", region:"東日本",
-   cap:84, capNote:"1日1組", gym:1, ground:1, solo:1,
-   desc:"東京から車で約90分。体育館とグラウンド、多目的ホールが揃い、プロジェクター・スクリーン・ホワイトボードは無料貸出。運動会も懇親会もそのまま成立する構成。",
-   tags:["体育館・グラウンド","多目的ホール","貸切110,000円/日〜","都心から約90分"],
-   url:"https://chonan-nishisho.jp/", label:"chonan-nishisho.jp"},
-
-  {name:"仲間と泊まる学校 さんむ西小", pref:"千葉県山武市", school:"旧・山武西小学校", region:"東日本",
-   cap:114, capNote:"2026年春開業", gym:1, ground:1, solo:1,
-   desc:"ちょうなん西小の姉妹施設で、定員はさらに大きい114名。体育館・グラウンド完備で運動会規模のイベントに対応。開業直後なので週末の枠は比較的取りやすいはず。",
-   tags:["体育館・グラウンド","新しい施設","団体専用"],
-   url:"https://co-mit.jp/facility/sammu-nishisho/", label:"施設情報"},
-
-  {name:"星ふる学校 くまの木", pref:"栃木県塩谷町", school:"旧・熊ノ木小学校", region:"東日本",
-   cap:78, capNote:"教室8室に最大70名", gym:0, ground:1, solo:0,
-   desc:"1999年閉校の校舎を2002年から体験交流施設に。和洋室・洋室・大和室の3タイプ計78名で、40人なら部屋割りに余裕が出る。名前のとおり星空と、農村体験プログラムが主役。",
-   tags:["客室3タイプ／計78名","体験プログラム","星空"],
-   url:"https://www.shioya-kumanoki.com/", label:"shioya-kumanoki.com"},
-
-  {name:"昭和ふるさと村", pref:"栃木県茂木町", school:"旧・木幡小学校（国登録有形文化財）", region:"東日本",
-   cap:250, capNote:"最大約250名", gym:1, ground:1, solo:0,
-   desc:"文化財の木造校舎を使った複合施設。体育館、BBQガーデン、キャンプファイヤー、露天風呂、グランピングまで揃い、40人でも「やることが足りない」にならない。規模は今回の候補で最大。",
-   tags:["体育館","露天風呂","キャンプファイヤー","グランピング"],
-   url:"https://showafurusato.com/", label:"showafurusato.com"},
+  {name:"ゲストハウス繁盛校", pref:"兵庫県宍粟市", school:"旧・繁盛小学校", region:"西日本",
+   cap:70, capNote:"校舎まるごと貸切可", gym:1, ground:1, solo:1,
+   price:{main:"3,500円〜", kind:"ドミトリー素泊まり", status:"ok"},
+   desc:"体育館とグラウンドが追加料金なしで24時間使い放題。宿泊は全4部屋で30人以上、全部屋貸し切っても96,000円なので、30人なら1人3,200円前後。予算と遊びの両立という意味では今回の本命。中学生以下は無料。",
+   tags:["体育館24時間","グラウンド24時間","全部屋貸切96,000円","中学生以下無料"],
+   url:"https://www.morehanse.net/", label:"morehanse.net"},
 
   {name:"ホステルひまわり", pref:"北海道夕張市", school:"旧・夕張北高等学校", region:"東日本",
    cap:200, capNote:"大食堂252席", gym:0, ground:1, solo:0,
-   desc:"高校校舎まるごとの宿。男女別大浴場、252名収容の大食堂、研修室、コインランドリー。大人数の合宿インフラとしては破格で、大人数利用なら貸切も相談可。",
-   tags:["大浴場","大食堂252席","研修室","貸切相談可"],
-   url:"https://satomono.jp/school/search/?pref=hokkaido", label:"施設情報"},
+   price:{main:"3,900円〜", kind:"ドミトリー素泊まり", status:"ok"},
+   desc:"高校校舎まるごとの宿。男女別大浴場、252名収容の大食堂、研修室、コインランドリー。2食付きでも8,300円で収まる。北海道までの航空券が最大の出費になるタイプ。",
+   tags:["大浴場","大食堂252席","2食付8,300円","貸切相談可"],
+   url:"https://yubari-himawari.jp/", label:"yubari-himawari.jp"},
 
-  {name:"おじまふるさと交流館", pref:"福島県川俣町", school:"旧・小島小学校", region:"東日本",
-   cap:38, capNote:"各24畳の2室", gym:1, ground:1, solo:0,
-   desc:"校舎・体育館・グラウンドがそのまま残る自然体験宿泊施設。24畳の大部屋2室で最大38名なので、今回の人数だとほぼ貸切に近い使い方になる。公営価格で安いのが強み。",
-   tags:["体育館・グラウンド","24畳×2室","自然体験"],
-   url:"https://satomono.jp/school/", label:"施設情報"},
+  {name:"SAGA FURUYU CAMP", pref:"佐賀県佐賀市富士町", school:"旧・富士小学校（2020年閉校）", region:"西日本",
+   cap:145, capNote:"大部屋4／ドミ6／ツイン8", gym:1, ground:1, solo:0,
+   price:{main:"4,800円〜", kind:"素泊まり（通常期・大人）", status:"ok"},
+   desc:"古湯温泉の温泉街にある合宿施設。人工芝グラウンドと体育館つきで素泊まり4,800円、朝夕つけても7,400円。大学生以下は3,800円とさらに安い。ハイシーズンは6,900円まで上がるので、時期をずらすと効く。",
+   tags:["人工芝グラウンド","体育館","温泉街","2食付7,400円","10名以上"],
+   url:"https://sf-camp.com/price/", label:"料金ページ"},
 
-  {name:"OKUTAMA+", pref:"東京都奥多摩町", school:"旧・古里中学校", region:"東日本",
-   cap:30, capNote:"1日1組限定", gym:0, ground:0, solo:1,
-   desc:"都心から約1時間の貸切中学校。教室・会議室・ラウンジが整っていて、遊ぶというよりは合宿＋作業の色が濃い。移動が短いぶん、金曜夜発の1泊が組みやすい。",
-   tags:["都心から約1時間","教室・ラウンジ","1日1組"],
-   url:"https://co-mit.jp/facility/okutamaplus/", label:"施設情報"},
+  {name:"星ふる学校 くまの木", pref:"栃木県塩谷町", school:"旧・熊ノ木小学校", region:"東日本",
+   cap:78, capNote:"教室8室に最大70名", gym:0, ground:1, solo:0,
+   price:{main:"5,000円", kind:"素泊まり（30〜49名）", status:"ok"},
+   desc:"人数が増えるほど1人あたりが下がる料金設計で、30〜49名なら素泊まり5,000円、50名以上なら4,300円。1泊2食にしても7,900円から収まる。名前のとおり星空と農村体験が主役。",
+   tags:["人数で単価が下がる","2食付7,900円〜","客室3タイプ","星空"],
+   url:"https://www.shioya-kumanoki.com/", label:"shioya-kumanoki.com"},
+
+  {name:"泊まれる学校 おくも村", pref:"兵庫県丹波篠山市", school:"旧・大芋小学校（2016年閉校）", region:"西日本",
+   cap:50, capNote:"一団体限定", gym:1, ground:1, solo:1,
+   price:{main:"5,000円", kind:"1泊（大人）", status:"ok"},
+   desc:"宿泊は一団体限定の完全貸切。体育館、校庭、吹き抜けの多目的ホール。大人5,000円・子ども3,500円という分かりやすい価格で、季節ごとのサイクリングや蛍観賞の企画に乗れる。",
+   tags:["完全貸切","体育館・校庭","子ども3,500円","季節の体験企画"],
+   url:"https://okumomura.com/", label:"okumomura.com"},
+
+  {name:"泊まれる学校 さる小", pref:"群馬県みなかみ町", school:"旧・猿ヶ京小学校", region:"東日本",
+   cap:120, capNote:"最少10名〜", gym:0, ground:1, solo:1,
+   price:{main:"5,500円〜", kind:"素泊まり", status:"ok"},
+   desc:"2012年開業、廃校活用の草分け。1日1団体の完全貸切で、音楽室・図工室・図書室まで自由に使える。夏季は+550円、土曜・祝前日は+660円。夕食2,200円／BBQ2,750円を足しても8,250円前後。",
+   tags:["グラウンド・プール","音楽室／図工室／図書室","夏季+550・土曜+660","BBQ2,750円"],
+   url:"https://www.sarusho.com/yoyaku/", label:"料金と予約"},
+
+  {name:"仲間と泊まる学校 ちょうなん西小", pref:"千葉県長南町", school:"旧・長南西小学校", region:"東日本",
+   cap:84, capNote:"1日1組・40名で4部屋", gym:1, ground:1, solo:1,
+   price:{main:"6,600円〜", kind:"20名以上・平日", status:"ok"},
+   desc:"東京から車で約90分。20名以上なら1人あたり計算で、平日6,600円・日祝7,700円・土曜8,800円（8月は11,000円）。平日か日祝に寄せれば素泊まり基準に収まる。体育館の夜間利用は1時間3,300円の別料金。",
+   tags:["体育館・グラウンド","日祝7,700円／土曜8,800円〜","体育館夜間3,300円/h","都心から約90分"],
+   url:"https://chonan-nishisho.jp/price", label:"宿泊料金"},
+
+  {name:"仲間と泊まる学校 さんむ西小", pref:"千葉県山武市", school:"旧・山武西小学校", region:"東日本",
+   cap:114, capNote:"2026年春開業", gym:1, ground:1, solo:1,
+   price:{main:"要確認", kind:"ちょうなん西小と同系列", status:"unknown"},
+   desc:"ちょうなん西小の姉妹施設で、定員はさらに大きい114名。体育館・グラウンド完備。同じ運営なので料金体系も近いと見込めるが、開業直後で公表が追いついていないので直接確認が要る。枠は取りやすいはず。",
+   tags:["体育館・グラウンド","新しい施設","団体専用"],
+   url:"https://co-mit.jp/facility/sammu-nishisho/", label:"施設情報"},
+
+  {name:"四万十楽舎", pref:"高知県四万十市", school:"旧・西土佐中半小学校", region:"西日本",
+   cap:60, capNote:"教室・保健室に2段ベッド", gym:1, ground:1, solo:0,
+   price:{main:"要確認", kind:"テントサイトは4,500円〜", status:"unknown"},
+   desc:"保健室や教室に2段ベッドが入った四万十川べりの廃校宿。カヌー、シュノーケリング、沢歩きが施設のプログラムとして用意されている。素泊まり料金は公表が薄いので要問い合わせだが、価格帯は安い側。",
+   tags:["カヌー・川遊び","2段ベッド","四万十川べり","駐車場30台"],
+   url:"https://www.shimanto-kankou.com/stay", label:"施設情報"},
 
   {name:"いいづなコネクトWEST とちのきの宿", pref:"長野県飯綱町", school:"旧・三水第二小学校", region:"中日本",
-   cap:48, capNote:"最大48名", gym:1, ground:1, solo:0,
-   desc:"宿泊棟に食堂・コインランドリー、サッカーグラウンド、体育館、フィットネススタジオ、貸会議室が併設。40人が生活動線ごと完結するタイプで、冬はスキー合宿の拠点にもなる。",
+   cap:48, capNote:"畳3室＋ドミ1室", gym:1, ground:1, solo:0,
+   price:{main:"要確認", kind:"公表なし", status:"unknown"},
+   desc:"宿泊棟に食堂・コインランドリー、サッカーグラウンド、体育館、フィットネススタジオ、貸会議室が併設。40人が生活動線ごと完結するタイプで、冬はスキー合宿の拠点にもなる。料金は問い合わせベース。",
    tags:["体育館・グラウンド","フィットネス","食堂・ランドリー"],
    url:"https://iizuna.jp/iicone-west/floor/tochinokino-yado/", label:"iizuna.jp"},
 
   {name:"s_pl@tt FUJISPARK", pref:"静岡県富士市", school:"旧・大学キャンパス", region:"中日本",
    cap:100, capNote:"個室〜大部屋", gym:1, ground:1, solo:0,
+   price:{main:"要確認", kind:"公表なし", status:"unknown"},
    desc:"廃校になった大学をまるごとリノベーション。個室から大部屋まで選べ、大中小の会議室とスポーツ施設が豊富。カタショーと同じ静岡なので、次回を「静岡もう一回」にするならここ。",
    tags:["スポーツ施設","会議室 大中小","個室あり"],
    url:"https://co-mit.jp/facility/fujispark/", label:"施設情報"},
 
-  {name:"ゲストハウス繁盛校", pref:"兵庫県宍粟市", school:"旧・繁盛小学校", region:"西日本",
-   cap:70, capNote:"校舎まるごと貸切可", gym:1, ground:1, solo:1,
-   desc:"体育館とグラウンドが追加料金なしで24時間使い放題。4部屋すべて使えば30名以上。30名で1泊182,000円〜という団体前提の料金設計で、今回の人数にいちばん素直にはまる。",
-   tags:["体育館24時間","グラウンド24時間","30名で182,000円〜/泊","和室ドミトリー"],
-   url:"https://www.morehanse.net/", label:"morehanse.net"},
+  {name:"昭和ふるさと村", pref:"栃木県茂木町", school:"旧・木幡小学校（国登録有形文化財）", region:"東日本",
+   cap:250, capNote:"最大約250名", gym:1, ground:1, solo:0,
+   price:{main:"約10,000円", kind:"グランピング2名20,000円・2食付", status:"edge"},
+   desc:"文化財の木造校舎を使った複合施設。体育館、BBQガーデン、キャンプファイヤー、露天風呂、グランピングまで揃う。ただし表に出ている料金はグランピング中心で1人1万円ライン。素泊まりの団体プランがあるか要確認。",
+   tags:["体育館","露天風呂","キャンプファイヤー","オートサイト11,000円〜"],
+   url:"https://showafurusato.com/", label:"showafurusato.com"},
 
-  {name:"泊まれる学校 おくも村", pref:"兵庫県丹波篠山市", school:"旧・大芋小学校（2016年閉校）", region:"西日本",
-   cap:50, capNote:"一団体限定", gym:1, ground:1, solo:1,
-   desc:"宿泊は一団体限定の完全貸切。体育館、校庭、吹き抜けの多目的ホール。季節ごとにサイクリング・山菜採り・登山・蛍観賞などの企画があり、施設側と一緒に遊びを組み立てられる。",
-   tags:["完全貸切","体育館・校庭","多目的ホール","季節の体験企画"],
-   url:"https://okumomura.com/", label:"okumomura.com"},
+  {name:"OKUTAMA+", pref:"東京都奥多摩町", school:"旧・古里中学校", region:"東日本",
+   cap:30, capNote:"1日1組限定", gym:0, ground:0, solo:1,
+   price:{main:"約9,750円", kind:"40名時・基本150,000円＋6,000円/人", status:"edge"},
+   desc:"都心から約1時間の貸切中学校。基本料150,000円に1人6,000円が乗るので、40人で割ってようやく1万円弱。人数が減るほど不利になる料金設計で、20人だと13,500円まで跳ねる。移動の短さを金で買う選択。",
+   tags:["都心から約1時間","教室・ラウンジ","人数が多いほど得","1日1組"],
+   url:"https://okutamaplus.com/reservation/", label:"料金・予約"},
 
   {name:"FOREST DOOR 旧神楽小学校", pref:"兵庫県丹波市", school:"旧・神楽小学校", region:"西日本",
-   cap:40, capNote:"1日1組限定", gym:1, ground:1, solo:1,
-   desc:"木のぬくもりに寄せた改修で、サウナ・BBQデッキ・焚き火コーナーつき。体育館と芝生エリアもあり、「走り回る」より「だらっと長く過ごす」方向の貸切。夜が長いタイプの旅向き。",
-   tags:["サウナ","BBQデッキ・焚き火","体育館・芝生","1日1組"],
-   url:"https://co-mit.jp/facility/forestdoor/", label:"施設情報"},
-
-  {name:"四万十楽舎", pref:"高知県四万十市", school:"旧・西土佐中半小学校", region:"西日本",
-   cap:60, capNote:"教室・保健室に2段ベッド", gym:1, ground:1, solo:0,
-   desc:"保健室や教室に2段ベッドが入った、四万十川べりの廃校宿。カヌー、シュノーケリング、沢歩きが施設のプログラムとして用意されていて、遊びの中身を外注できるのが強い。",
-   tags:["カヌー・川遊び","2段ベッド","四万十川べり","駐車場30台"],
-   url:"https://www.shimanto-kankou.com/stay", label:"施設情報"},
-
-  {name:"SAGA FURUYU CAMP", pref:"佐賀県佐賀市富士町", school:"旧・富士小学校（2020年閉校）", region:"西日本",
-   cap:145, capNote:"大部屋4／ドミトリー6／ツイン8", gym:1, ground:1, solo:0,
-   desc:"古湯温泉の温泉街にある合宿施設。人工芝グラウンドと体育館が使え、宿泊は145名まで。大部屋・ドミトリー・ツインが混在しているので、雑魚寝が苦手な人にも部屋を割り当てられる。",
-   tags:["人工芝グラウンド","体育館","温泉街","ツインルーム8室"],
-   url:"https://sf-camp.com/", label:"sf-camp.com"}
+   cap:10, capNote:"ウッドヴィラは最大10名", gym:1, ground:1, solo:1,
+   price:{main:"12,000円〜", kind:"ヴィラ120,000円÷10名", status:"over"},
+   desc:"サウナ・BBQデッキ・焚き火コーナーつきの1日1組。ただし宿泊はウッドヴィラ「心楽」が主で1棟120,000円・最大10名。40人は入らないうえ単価も予算の倍。日帰りで体育館と芝生だけ借りる使い方なら候補に残る。",
+   tags:["サウナ","BBQデッキ・焚き火","最大10名","日帰り利用向き"],
+   url:"https://forestdoor.co.jp/service/", label:"料金案内"}
 ];
 
 const list = document.getElementById('list');
 const counter = document.getElementById('count');
 
+const STATUS = {ok:'予算内', edge:'上限ぎり', over:'予算オーバー', unknown:'要確認'};
+
 function row(d){
   const el = document.createElement('article');
-  el.className = 'row';
+  el.className = 'row' + (d.price.status === 'over' ? ' over' : '');
+  el.dataset.budget = d.price.status;
   el.dataset.region = d.region;
   el.dataset.cap40 = d.cap >= 40 ? '1' : '0';
   el.dataset.gym = d.gym ? '1' : '0';
@@ -489,6 +536,7 @@ function row(d){
       ${d.kind ? `<span class="kind">${d.kind}</span>` : ''}
       <h3>${d.name}</h3>
       <p class="where"><span class="pref">${d.pref}</span> ／ ${d.school}</p>
+      <p class="price"><b>${d.price.main}</b><span class="pk">${d.price.kind}</span><span class="ps ${d.price.status}">${STATUS[d.price.status]}</span></p>
       <p class="desc">${d.desc}</p>
       <div class="tags">${tags}<a class="link" href="${d.url}" target="_blank" rel="noopener">${d.label}</a></div>
     </div>`;
@@ -496,48 +544,54 @@ function row(d){
 }
 
 const DATA2 = [
-  {name:"瀬戸内 貸切 無人島 KUJIRA-JIMA", kind:"無人島まるごと", pref:"岡山県玉野市", school:"くじら島（宇野港から船で30分）", region:"西日本",
-   cap:50, capNote:"上限超も相談可", gym:0, ground:1, solo:1,
-   desc:"島を1日1組で丸ごと借りる。テント・グランピング・コテージから選べて、釣り、カヤック、キャンプファイヤーまで島の中で完結する。約80名のウェディング、約100名の修学旅行の実績があるので、40人はむしろ余裕のある側。",
-   tags:["1日1組・島まるごと","キャンプファイヤー","カヤック・釣り","基本200,000円＋大人35,000円/人"],
-   url:"https://www.setouchi.travel/jp/trip-ideas/f35819/", label:"施設紹介"},
-
-  {name:"大村湾〜無人島〜滞在記「田島」", kind:"無人島まるごと", pref:"長崎県西海市", school:"大村湾に浮かぶ無人島", region:"西日本",
-   cap:100, capNote:"300人規模の実績あり", gym:0, ground:1, solo:1,
-   desc:"無人島インストラクターがつくので、手ぶらで無人島キャンプが成立する珍しい島。フィールドが平らで広く、大人数のイベント向き。まず日帰り（大人5,900円〜）で下見してから泊まりを組むのが安全。",
-   tags:["1日1組貸切","インストラクター付き","手ぶらでOK","日帰り5,900円〜"],
-   url:"https://tashima-nagasaki.com/", label:"tashima-nagasaki.com"},
-
-  {name:"高野山 宿坊 三宝院", kind:"寺に泊まる", pref:"和歌山県高野町", school:"高野山の宿坊寺院（52ヶ寺のひとつ）", region:"西日本",
-   cap:150, capNote:"個室40室＋大広間", gym:0, ground:0, solo:0,
-   desc:"個室40室に大広間・中広間、団体で約150名まで。精進料理と朝の勤行がそのまま行程になるので、遊ぶというより「全員で同じ時間に同じことをやる」旅向き。15名以上の団体は電話相談。",
-   tags:["個室40室","精進料理","朝勤行","団体15名〜要電話"],
-   url:"https://www.shukubo.net/contents/stay/", label:"高野山宿坊協会"},
+  {name:"大阪府立 少年自然の家", kind:"公営の自然の家", pref:"大阪府能勢町", school:"林間学校・宿泊学習の定番施設", region:"西日本",
+   cap:200, capNote:"ファイヤー場7カ所", gym:1, ground:1, solo:0,
+   price:{main:"1,360円", kind:"宿泊棟・大人（食事別）", status:"ok"},
+   desc:"数名から400名までの規模に対応するキャンプファイヤー場が7カ所。人数に合わせて火を囲む場所を選べるのはここくらい。宿泊棟は大人1,360円・小人680円と圧倒的に安く、食事とシーツ代を足しても余裕で予算内。",
+   tags:["ファイヤー場7カ所","体育館","小人680円","大阪府民割引あり"],
+   url:"https://shizen.osaka-yha.or.jp/ryoukin/index.html", label:"料金案内"},
 
   {name:"習志野市立 富士吉田青年の家", kind:"公営の青年の家", pref:"山梨県富士吉田市", school:"習志野市の市外施設", region:"中日本",
    cap:100, capNote:"本館60名＋体育館棟40名", gym:1, ground:1, solo:0,
-   desc:"本館棟6部屋60名、体育館棟4部屋40名の計100名。4名以上ならどんな団体でも使える公営施設で、価格は今回の候補で最安クラス。富士山麓なので夏でも涼しい。派手さはないが、40人の合宿としては最も外れがない。",
-   tags:["体育館","公営価格","4名以上の団体","富士山麓"],
-   url:"https://www.city.narashino.lg.jp/shisetu/shigai/fujiyoshida/", label:"習志野市"},
+   price:{main:"3,250円〜", kind:"市外・25歳以下＋シーツ代", status:"ok"},
+   desc:"本館棟6部屋60名、体育館棟4部屋40名。習志野市外でも使えて、25歳以下なら2,900円＋シーツ350円。26歳以上は3,580円＋350円。派手さはないが、体育館つきでこの値段は今回の候補で最強クラス。冬は暖房費170円/泊。",
+   tags:["体育館","25歳以下2,900円","4名以上の団体","富士山麓"],
+   url:"https://www.city.narashino.lg.jp/soshiki/seinennoie/gyomu/shisetu/shigai/ryokin.html", label:"利用料金"},
 
   {name:"泊まれる公園 INN THE PARK 沼津", kind:"元・少年自然の家", pref:"静岡県沼津市", school:"旧・沼津市立少年自然の家", region:"中日本",
    cap:60, capNote:"宿泊棟＋テント併用", gym:0, ground:1, solo:0,
-   desc:"30年以上使われた少年自然の家を、代々木公園に匹敵する約60haの森ごと宿にした施設。宙に浮く球体テントが名物だが2名単位なので、40人なら1組貸切の宿泊棟をベースにテントを足す構成になる。「廃校」の親戚みたいな出自。",
-   tags:["宙に浮く球体テント","森 約60ha","宿泊棟は1組貸切","コース仕立ての夕食"],
+   price:{main:"予算オーバー", kind:"コース夕食付きの価格帯", status:"over"},
+   desc:"30年以上使われた少年自然の家を、代々木公園に匹敵する約60haの森ごと宿にした施設。宙に浮く球体テントが名物だが2名単位で、価格帯もコース料理つきのリゾート寄り。今回の予算だと厳しい。",
+   tags:["宙に浮く球体テント","森 約60ha","宿泊棟は1組貸切"],
    url:"https://www.innthepark.jp/", label:"innthepark.jp"},
 
-  {name:"大阪府立 少年自然の家", kind:"公営の自然の家", pref:"大阪府能勢町", school:"林間学校・宿泊学習の定番施設", region:"西日本",
-   cap:200, capNote:"ファイヤー場7カ所", gym:1, ground:1, solo:0,
-   desc:"数名から400名までの規模に対応するキャンプファイヤー場が7カ所ある。人数に合わせて火を囲む場所を選べるのはここくらい。宿泊学習の設備がそのまま使えるので、40人で「本気の運動会と本気のキャンプファイヤー」をやるなら候補。",
-   tags:["ファイヤー場7カ所","体育館","公営価格","大阪市内から近い"],
-   url:"https://shizen.osaka-yha.or.jp/shisetsu", label:"施設案内"}
+  {name:"高野山 宿坊 三宝院", kind:"寺に泊まる", pref:"和歌山県高野町", school:"高野山の宿坊寺院（52ヶ寺のひとつ）", region:"西日本",
+   cap:150, capNote:"個室40室＋大広間", gym:0, ground:0, solo:0,
+   price:{main:"15,000〜25,000円", kind:"1泊2食の相場", status:"over"},
+   desc:"個室40室に大広間、団体で約150名まで。精進料理と朝の勤行がそのまま行程になる。ただし高野山の宿坊相場は1泊2食で15,000〜25,000円が中心で、今回の予算の倍。団体交渉の余地はあるが、素泊まりの設定は基本ない。",
+   tags:["個室40室","精進料理","朝勤行","団体15名〜要電話"],
+   url:"https://www.shukubo.net/contents/stay/", label:"高野山宿坊協会"},
+
+  {name:"大村湾〜無人島〜滞在記「田島」", kind:"無人島まるごと", pref:"長崎県西海市", school:"大村湾に浮かぶ無人島", region:"西日本",
+   cap:100, capNote:"300人規模の実績あり", gym:0, ground:1, solo:1,
+   price:{main:"20,000円〜", kind:"3名以上プラン・大人", status:"over"},
+   desc:"インストラクター付きで手ぶら無人島キャンプが成立する珍しい島。丸ごと貸切コースは大人39,900円、3名以上プランでも大人20,000円。泊まりは予算外だが、日帰り探検コースは大人5,900円なので、そこだけ切り出すのが現実的。",
+   tags:["1日1組貸切","インストラクター付き","日帰りなら5,900円","丸ごと貸切39,900円"],
+   url:"https://tashima-nagasaki.com/", label:"tashima-nagasaki.com"},
+
+  {name:"瀬戸内 貸切 無人島 KUJIRA-JIMA", kind:"無人島まるごと", pref:"岡山県玉野市", school:"くじら島（宇野港から船で30分）", region:"西日本",
+   cap:50, capNote:"上限超も相談可", gym:0, ground:1, solo:1,
+   price:{main:"約40,000円", kind:"40名時・基本200,000円＋35,000円/人", status:"over"},
+   desc:"島を1日1組で丸ごと。約80名のウェディング、約100名の修学旅行の実績があり体験としては文句なしだが、基本料200,000円に大人35,000円/人が乗るので1人4万円。予算の4倍で、今回はどう組んでも届かない。",
+   tags:["1日1組・島まるごと","キャンプファイヤー","カヤック・釣り","基本200,000円＋35,000円/人"],
+   url:"https://www.setouchi.travel/jp/trip-ideas/f35819/", label:"施設紹介"}
 ];
 
 DATA.forEach(d => list.appendChild(row(d)));
 const list2 = document.getElementById('list2');
 DATA2.forEach(d => list2.appendChild(row(d)));
 
-const active = {region:new Set(), cap40:false, gym:false, solo:false};
+const active = {region:new Set(), cap40:false, gym:false, solo:false, budget:false};
 
 function apply(){
   let n = 0;
@@ -547,6 +601,7 @@ function apply(){
     if (active.cap40 && el.dataset.cap40 !== '1') ok = false;
     if (active.gym && el.dataset.gym !== '1') ok = false;
     if (active.solo && el.dataset.solo !== '1') ok = false;
+    if (active.budget && el.dataset.budget !== 'ok') ok = false;
     el.classList.toggle('hide', !ok);
     if (ok) n++;
   });
